@@ -8,6 +8,11 @@
 class ProcessManager{
     public:
         ProcessManager(ProcessPublisher*);
+        void createProcessesList();
+    
+    private:
+        nlohmann::json processesInfo;
+        std::list<ProcessState> processes;
 };
 
 #endif //PROCESS_MANAGER_H

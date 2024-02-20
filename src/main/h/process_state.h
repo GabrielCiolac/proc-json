@@ -3,18 +3,16 @@
 #define PROCESS_STATE_H
 
 #include <string>
+#include <nlohmann/json.hpp>
 
-class Process {
+class ProcessState {
 public:
-    Process(std::string name, int priority, int time_slice, int PID);
-    ~Process();
-    std::string getName();
-    int getPriority();
-    int getTimeSlice();
-    int getPID();
-    std::string getState();
-    void printProcess();
-    void printChildren();
+    ProcessState(int PID);
+    ~ProcessState();
+    nlohmann::json getProcessInfo();
+private:
+    void GenerateProcessState();
+    nlohmann::json processInfo;
 };
 
 #endif //PROCESS_STATE_H
